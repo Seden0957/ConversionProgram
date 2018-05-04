@@ -143,36 +143,52 @@ public class Display extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public double inchesToCentimetres (double value){
+        double centimetres;
+        centimetres = value*2.54; //convert inches to centimetres
+        return centimetres;
+    }
+    public double feetToCentimetres (double value) {
+        double feet;
+        feet = value*30;
+        return feet;
+    }
+    public double yardsToMetres (double value) {
+        double metres;
+        metres = value*.91;
+        return metres;
+    }
+    public double milesToKilometres (double value) {
+        double kilometres;
+        kilometres = value*1.6;
+        return kilometres;
+    }
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         DecimalFormat x = new DecimalFormat ("$###.00"); //makes sure if the number is a decimal it isn't too big
-        double inchToCenti, feetToCenti, yardsToMetres, milesToKm;
+        double inchToCenti, feetToCenti, yardsToMetres, milesToKm, value;
         int conversionChoice;
         conversionChoice = Integer.parseInt(systemChoice.getText()); //based on input 1-4 chooses the system
+        value =  Double.parseDouble(valueInput.getText());
         switch(conversionChoice)
         {
-                case 1:
-                    inchToCenti = Double.parseDouble(valueInput.getText()); //get the input
-                    inchToCenti = inchToCenti*2.54; //convert inches to centimetres
-                    outputLabel.setText(x.format(inchToCenti));
+                case 1:            
+                    //Inches to Centimetres
+                    outputLabel.setText("There are " + inchesToCentimetres(value)+ " centimetres in " + value + " inches");
                     break;
 
-                case 2:    
-                    feetToCenti = Double.parseDouble(valueInput.getText());//get the input
-                    feetToCenti = feetToCenti*30; //feet to centimetres 
-                    outputLabel.setText(x.format(feetToCenti));
+                case 2:                                         
+                    //Feet to centimetres 
+                    outputLabel.setText("There are " + feetToCentimetres(value)+ " centimtres in " + value + " feet");
                     break;
 
-                case 3:
-                    yardsToMetres = Double.parseDouble(valueInput.getText());//get the input
-                    yardsToMetres = yardsToMetres*.91; //yards to metres 
-                    outputLabel.setText(x.format(yardsToMetres));
+                case 3:    
+                    //Yards to metres
+                    outputLabel.setText("There are " + yardsToMetres(value)+ " Metres in " + value + "yards");
                     break;
                    
                 case 4:
-                    milesToKm = Double.parseDouble(valueInput.getText());//get the input
-                    milesToKm = milesToKm*1.6; //miles to kilometres 
-                    outputLabel.setText(x.format(milesToKm));
+                    //miles To kilometres 
+                    outputLabel.setText(("There are " + milesToKilometres(value)+ " kilometres in " + value + "miles"));
                     break;
                 default:
                     outputLabel.setText("*Notices incorect input* Sorry this isn't one of the conversions. OwO"); //if conversion system isn't 1-4 display this
