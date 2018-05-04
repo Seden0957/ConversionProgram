@@ -2,13 +2,12 @@
 import java.text.DecimalFormat;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This program is designed to be able to convert measurments the use inputs into different 
+ * measurments based on the type of conversion the user chooses 
  */
 
 /**
- *
+ * May 3, 2018
  * @author seden0957
  */
 public class Display extends javax.swing.JFrame {
@@ -146,37 +145,37 @@ public class Display extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        DecimalFormat x = new DecimalFormat ("$###.00");
+        DecimalFormat x = new DecimalFormat ("$###.00"); //makes sure if the number is a decimal it isn't too big
         double inchToCenti, feetToCenti, yardsToMetres, milesToKm;
         int conversionChoice;
-        conversionChoice = Integer.parseInt(systemChoice.getText());
+        conversionChoice = Integer.parseInt(systemChoice.getText()); //based on input 1-4 chooses the system
         switch(conversionChoice)
         {
                 case 1:
-                    inchToCenti = Double.parseDouble(valueInput.getText());
-                    inchToCenti = inchToCenti*2.54;
+                    inchToCenti = Double.parseDouble(valueInput.getText()); //get the input
+                    inchToCenti = inchToCenti*2.54; //convert inches to centimetres
                     outputLabel.setText(x.format(inchToCenti));
                     break;
 
                 case 2:    
-                    feetToCenti = Double.parseDouble(valueInput.getText());
-                    feetToCenti = feetToCenti*30;
+                    feetToCenti = Double.parseDouble(valueInput.getText());//get the input
+                    feetToCenti = feetToCenti*30; //feet to centimetres 
                     outputLabel.setText(x.format(feetToCenti));
                     break;
 
                 case 3:
-                    yardsToMetres = Double.parseDouble(valueInput.getText());
-                    yardsToMetres = yardsToMetres*.91; 
+                    yardsToMetres = Double.parseDouble(valueInput.getText());//get the input
+                    yardsToMetres = yardsToMetres*.91; //yards to metres 
                     outputLabel.setText(x.format(yardsToMetres));
                     break;
                    
                 case 4:
-                    milesToKm = Double.parseDouble(valueInput.getText());
-                    milesToKm = milesToKm*1.6;
+                    milesToKm = Double.parseDouble(valueInput.getText());//get the input
+                    milesToKm = milesToKm*1.6; //miles to kilometres 
                     outputLabel.setText(x.format(milesToKm));
                     break;
                 default:
-                    outputLabel.setText("*Notices incorect input* Sorry this isn't one of the conversions. OwO");
+                    outputLabel.setText("*Notices incorect input* Sorry this isn't one of the conversions. OwO"); //if conversion system isn't 1-4 display this
         }            
         
     }//GEN-LAST:event_enterButtonActionPerformed
